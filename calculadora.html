@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<script>
+document.write('Calculadora:'); 
+
+function operaciones(operador){
+    var n1 = document.botones.n1.value
+    var n2 = document.botones.n2.value 
+  
+		   
+
+ if (operador=='+') {
+ var result = eval(n1  + operador + n2)
+	
+		}
+
+ if (operador=='-') {
+ var result = eval(n1  - n2)
+	
+		}
+
+		 if (operador=='*') {
+ var result = eval(n1  * n2)
+	
+		}
+
+ if (operador=='/') {
+ var result = eval(n1  / n2)
+	
+		}
+
+		    if (operador=='%') {
+
+	  var result = eval(n1 / n2)
+		 var result = Math.trunc(result);
+		}
+
+
+    document.botones.tot.value = result
+}
+</script>
+
+
+
+
+
+
+
+</head>
+
+<form name="botones">
+<br>
+<br>
+Dato 1:................................operador.....................Dato 2:
+<br>
+<input type="Text" name="n1" >
+
+<input type="Button" name="" value="+" onclick="operaciones('+')">
+<input type="Button" name="" value="-" onclick="operaciones('-')">
+<input type="Button" name="" value="*" onclick="operaciones('*')">
+<input type="Button" name="" value="/" onclick="operaciones('/')">
+<input type="Button" name="" value="%" onclick="operaciones('%')">
+
+
+<input type="Text" name="n2"  >
+
+
+<br>
+<br>
+Resultado:<br>
+<input type="Text" name="tot" >
+</form>
+
+<body>
+
+</body>
+</html>
