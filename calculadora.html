@@ -1,78 +1,279 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-<script>
-document.write('Calculadora:'); 
-
-function operaciones(operador){
-    var n1 = document.botones.n1.value
-    var n2 = document.botones.n2.value 
-  
-		   
-
- if (operador=='+') {
- var result = eval(n1  + operador + n2)
-	
-		}
-
- if (operador=='-') {
- var result = eval(n1  - n2)
-	
-		}
-
-		 if (operador=='*') {
- var result = eval(n1  * n2)
-	
-		}
-
- if (operador=='/') {
- var result = eval(n1  / n2)
-	
-		}
-
-		    if (operador=='%') {
-
-	  var result = eval(n1 / n2)
-		 var result = Math.trunc(result);
-		}
+<meta charset="UTF-8">
+	<title></title>
 
 
-    document.botones.tot.value = result
+	<style>
+
+	input[type=button]{
+  width: 5%;
+  height: 8%;
+  font-size: 30px;
 }
-</script>
 
 
+	<style>
 
-
-
-
-
+		
+	
+	</style>
 </head>
-
-<form name="botones">
-<br>
-<br>
-Dato 1:................................operador.....................Dato 2:
-<br>
-<input type="Text" name="n1" >
-
-<input type="Button" name="" value="+" onclick="operaciones('+')">
-<input type="Button" name="" value="-" onclick="operaciones('-')">
-<input type="Button" name="" value="*" onclick="operaciones('*')">
-<input type="Button" name="" value="/" onclick="operaciones('/')">
-<input type="Button" name="" value="%" onclick="operaciones('%')">
-
-
-<input type="Text" name="n2"  >
-
-
-<br>
-<br>
-Resultado:<br>
-<input type="Text" name="tot" >
-</form>
-
 <body>
 
+	
+	<script language="javascript">
+
+var memoria = 0;
+var dani = 0;
+
+
+
+
+var letra=function(){
+	var e=document.diseño.numero.value;
+	var r=e.substr(-1);
+	var norma=document.diseño.mas.style.backgroundColor;
+	if (r=="+") {
+		document.diseño.mas.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.mas.style.backgroundColor=norma;}, 200);
+				}
+
+	if (r=="c") {
+		document.diseño.ce.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.ce.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="-") {
+		document.diseño.menos.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.menos.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="*") {
+		document.diseño.multiplicar.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.multiplicar.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="/") {
+		document.diseño.division.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.division.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="=") {
+	
+			document.diseño.igual.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.igual.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="%") {
+		document.diseño.residuo.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.residuo.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="1") {
+		document.diseño.uno.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.uno.style.backgroundColor=norma;}, 200); 
+	}
+
+	if (r=="2") {
+		document.diseño.dos.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.dos.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="3") {
+		document.diseño.tres.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.tres.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="4") {
+		document.diseño.cuatro.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.cuatro.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="5") {
+		document.diseño.cinco.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.cinco.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="6") {
+		document.diseño.seis.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.seis.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="7") {
+		document.diseño.siete.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.siete.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="8") {
+		document.diseño.ocho.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.ocho.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="9") {
+		document.diseño.nueve.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.nueve.style.backgroundColor=norma;}, 200);
+	}
+
+	if (r=="0") {
+		document.diseño.cero.style.backgroundColor="silver";
+		setTimeout(function() {document.diseño.cero.style.backgroundColor=norma;}, 200);
+	}
+
+
+
+
+}
+
+function calcular(){
+
+
+    var resultado=eval(document.diseño.numero.value);
+    memoria = document.diseño.numero.value;
+    if(resultado=="Infinity"){
+        document.diseño.numero.value="No se puede dividir entre cero";
+
+    }else{
+
+        document.diseño.numero.value=  resultado;
+        memoria = memoria + " = " + resultado;
+    }
+    
+}
+
+function memo(){
+	document.diseño.numero.value = memoria;
+	document.diseño.historial.value="";
+
+}
+
+
+function limpiar(){
+    document.diseño.numero.value="";
+    document.diseño.historial.value="";
+}
+
+
+function operaciones(operador){
+ 
+var okis =  document.diseño.numero.value
+
+		 if (operador=='tan') {
+		
+ 			var x = Math.tan(okis);
+ 			document.diseño.historial.value = okis + operador
+ 			var h = document.diseño.historial.value
+		 	document.diseño.numero.value = x
+			document.diseño.historial.value = h + ' = ' + x
+			memoria = document.diseño.historial.value
+		}
+
+		else if (operador=='sin') {
+			document.diseño.historial.value = okis + operador
+ 			var h = document.diseño.historial.value
+			var x = Math.sin(okis);
+		 	document.diseño.numero.value = x
+		 	document.diseño.historial.value = h + ' = ' + x
+		 	memoria = document.diseño.historial.value
+		 
+		}
+		else if (operador=='cos') {
+			document.diseño.historial.value = okis + operador
+ 			var h = document.diseño.historial.value
+			var x = Math.cos(okis);
+		 	document.diseño.numero.value = x
+		 	document.diseño.historial.value = h + ' = ' + x
+		 	memoria = document.diseño.historial.value
+		 
+		}
+		else if (operador=='sqr') {
+			document.diseño.historial.value = okis + operador
+ 			var h = document.diseño.historial.value
+			var x = okis * okis;
+		 	document.diseño.numero.value = x
+		 	document.diseño.historial.value = h + ' = ' + x
+		 	memoria = document.diseño.historial.value
+		 
+		}
+		else if (operador=='log') {
+			document.diseño.historial.value = okis + operador
+ 			var h = document.diseño.historial.value
+			var x = Math.exp(okis);
+		 	document.diseño.numero.value = x
+			document.diseño.historial.value = h + ' = ' + x
+			memoria = document.diseño.historial.value
+		 
+		}
+		else {
+		 	document.diseño.numero.value = okis + operador
+		}	 
+
+
+}
+
+
+
+
+
+
+	</script>
+
+
+
+
+<form name="diseño" align="center">
+<br>
+<br>
+<label id="lbltipAddedComment">Calculadora</label>
+
+
+
+  <table>
+<br>
+<br>
+<input type="text" name="numero" onkeyup="letra(diseño)"  size="34">
+<br>
+<br>
+<input type="button" value=" + " name="mas" onclick="operaciones('+')" >
+<input type="button" value=" -  " name="menos " onclick="operaciones('-')">
+<input type="button" value=" / " name="division"  onclick="operaciones('/')">
+<input type="button" value=" sin " name="seno"  onclick="operaciones('sin')">
+
+<br>
+<input type="button" value=" 7 " name="siete"  onclick="operaciones('7')">
+<input type="button" value=" 8 " name="ocho"  onclick="operaciones('8')">
+<input type="button" value=" 9 " name="nueve"  onclick="operaciones('9')">
+<input type="button" value=" cos " name="coseno"  onclick="operaciones('cos')">
+<br>
+<input type="button" value=" 4 " name="cuatro"  onclick="operaciones('4')">
+<input type="button" value=" 5 " name="cinco"  onclick="operaciones('5')">
+<input type="button" value=" 6 " name="seis"  onclick="operaciones('6')">
+<input type="button" value=" tan " name="tangente"  onclick="operaciones('tan')">
+<br>
+<input type="button" value=" 1 " name="uno"  onclick="operaciones('7')">
+<input type="button" value=" 2 " name="dos"  onclick="operaciones('2')">
+<input type="button" value=" 3 " name="tres"  onclick="operaciones('3')">
+<input type="button" value=" x'2 " name="cuadrado"  onclick="operaciones('sqr')">
+<br>
+<input type="button" value=" * " name="multiplicar" onclick="operaciones('*')" >
+<input type="button" value=" 0 " name="cero" onclick="operaciones('0')">
+<input type="button" value=" % " name="residuo" onclick="operaciones('%')">
+<input type="button" value="pow " name="potencia"  onclick="operaciones('log')">
+<br>
+<input type="button" value="←" name="atras" onclick="memo()">
+<input type="button" value="=" name="igual" onclick="calcular()">
+<input type="button" value="C " name="borra" onclick="limpiar()">
+<br>
+<br>
+<input type="text" name="historial" value="" readonly  size="100">
+  </table>
+
+
+
+	</form>
+
+	
+	
 </body>
 </html>
